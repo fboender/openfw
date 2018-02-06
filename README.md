@@ -26,13 +26,14 @@ For Debian / Ubuntu:
     sudo apt install at
 
     # Install sudoers permissions
-    sudo cp etc.sudoers /etc/sudoers.d
+    sudo cp etc.sudoers /etc/sudoers.d/openfw
 
     # Copy openfw shell script
     sudo cp openfw.sh /usr/local/sbin
 
     # Copy openfw.php to webroot
     sudo cp openfw.php /var/www/html/
+    chown www-data:www-data /var/www/html/openfw.php
 
     # Edit the openfw.php script to change the password
     # Generate a new password:
