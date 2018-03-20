@@ -50,7 +50,7 @@ For Debian / Ubuntu:
 
 Released under the MIT license:
 
-	Copyright 2017 Ferry Boender, released under the MIT license
+    Copyright 2017 Ferry Boender, released under the MIT license
 
     Permission is hereby granted, free of charge, to any person obtaining a
     copy of this software and associated documentation files (the "Software"),

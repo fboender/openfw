@@ -10,13 +10,13 @@ PORTS="22"
 TIMEOUT="2"  # Minutes
 
 usage() {
-	if [ -n "$1" ]; then
-		echo $1 >&2
-	else
+    if [ -n "$1" ]; then
+        echo $1 >&2
+    else
         echo "Add / remove firewall access for IP" >&2
-	fi
-	echo "Usage: $0 (add|remove) <IP>" >&2
-	exit 1
+    fi
+    echo "Usage: $0 (add|remove) <IP>" >&2
+    exit 1
 }
 
 get_ip() {
@@ -31,9 +31,9 @@ get_ip() {
 
 # Parse help arguments
 if [ "$1" = "--help" -o "$1" = "-h" ]; then
-	usage
+    usage
 elif [ $# -ne 2 ]; then
-	usage "Not enough parameters"
+    usage "Not enough parameters"
 fi
 
 # Verify AT is installed
@@ -61,5 +61,5 @@ elif [ "$1" = "remove" ]; then
         /sbin/iptables -D INPUT -p tcp --dport $PORT --source $IP -j ACCEPT
     done
 else
-	usage "Invalid command: $1"
+    usage "Invalid command: $1"
 fi

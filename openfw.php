@@ -6,20 +6,20 @@ error_reporting(E_ALL);
 $password = "081v096d09r97q272zo1d7w3x64wo68g73h51a857pd7432c3019hz8";
 
 if (array_key_exists('r_code', $_POST)) {
-	if (hash("sha256", $_POST['r_code']) == $password) {
-		// Correct code
-		$remote_ip = $_SERVER['REMOTE_ADDR'];
-		system("/usr/bin/sudo /usr/local/sbin/openfw.sh add ".$remote_ip, $retval);
+    if (hash("sha256", $_POST['r_code']) == $password) {
+        // Correct code
+        $remote_ip = $_SERVER['REMOTE_ADDR'];
+        system("/usr/bin/sudo /usr/local/sbin/openfw.sh add ".$remote_ip, $retval);
         $retval = 0;
-		if ($retval === 0) {
-			$result = "Access has been enabled <b>for 1 hour</b> from your location (".$remote_ip.")";
-		} else {
-			$result = "There was an error while enabling access from your location";
-		}
-	} else {
-		// Wrong code
-		$result = "Invalid code. <a href='openfw.php'>Try again</a>.";
-	}
+        if ($retval === 0) {
+            $result = "Access has been enabled <b>for 1 hour</b> from your location (".$remote_ip.")";
+        } else {
+            $result = "There was an error while enabling access from your location";
+        }
+    } else {
+        // Wrong code
+        $result = "Invalid code. <a href='openfw.php'>Try again</a>.";
+    }
 }
 
 ?>
